@@ -7,8 +7,6 @@ defmodule BotTiago.Application do
 
   @impl true
   def start(_type, _args) do
-    load_dotenv()
-
     children = [
       # Starts a worker by calling: BotTiago.Worker.start_link(arg)
       # {BotTiago.Worker, arg}
@@ -19,10 +17,5 @@ defmodule BotTiago.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: BotTiago.Supervisor]
     Supervisor.start_link(children, opts)
-  end
-
-  defp load_dotenv do
-    Dotenv.load()
-    Mix.Task.run("loadconfig")
   end
 end
