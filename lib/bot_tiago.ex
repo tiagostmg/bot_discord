@@ -15,7 +15,7 @@ defmodule BotTiago do
     else
       case String.split(msg.content, ~r/\s+/, trim: true) do
         ["!ping"] ->
-          Message.create(msg.channel_id, "pong! bot online e conectado.")
+          Message.create(msg.channel_id, "pong!")
 
         ["!status"] ->
           Message.create(msg.channel_id, "status: online, websocket ativo.")

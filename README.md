@@ -1,21 +1,11 @@
-# BotDiscord
+# Trabalho de BOT Discord em elixir
+## Como rodar:
+1. Criar um bot no discord como administrador
+2. adicionar o bot no servidor
+3. adicionar token do bot no .env (DISCORD_TOKEN)
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `bot_discord` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:bot_discord, "~> 0.1.0"}
-  ]
-end
+## Como executar:
+rodar o seguinte comando:
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/bot_discord>.
-
+mix run --no-halt
+```
