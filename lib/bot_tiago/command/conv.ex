@@ -1,7 +1,7 @@
 defmodule BotTiago.Command.Conv do
   @moduledoc false
 
-  @api_url "https://api.frankfurter.app/latest"
+  @api_url "https://api.frankfurter.dev/v1/latest"
 
   def handle_conv(msg) do
     case String.split(msg.content, ~r/\s+/, trim: true) do
@@ -39,9 +39,14 @@ defmodule BotTiago.Command.Conv do
     url = "#{@api_url}?amount=#{amount}&from=#{from}&to=#{to}"
 
     case HTTPoison.get(url, [], recv_timeout: 10_000) do
-      {:ok, %{status_code: 200, body: body}} -> format_conversion(body, amount, from, to)
-      {:ok, %{status_code: status}} -> {:error, "nao consegui converter agora. status HTTP #{status}."}
-      {:error, _reason} -> {:error, "falha ao consultar a API de cambio."}
+      {:ok, %{status_code: 200, body: body}} ->
+        format_conversion(body, amount, from, to)
+
+      {:ok, %{status_code: status}} ->
+        {:error, "nao consegui converter agora. status HTTP #{status}."}
+
+      {:error, _reason} ->
+        {:error, "falha ao consultar a API de cambio."}
     end
   end
 
